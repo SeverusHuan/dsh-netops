@@ -6,7 +6,7 @@
   "type": "module",
   "main": "./index.js",
   "bin": {
-    "dsh-netops-gui": "./gui/launch.mjs"
+    "dsh-netops-gui": "gui/launch.mjs"
   },
   "exports": {
     ".": "./index.js",
