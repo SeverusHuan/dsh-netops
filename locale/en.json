@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Network operations (Ansible)",
+    "description": "Inspect network devices over SSH or Telnet for CPU, memory, fans, power, temperature, and disk usage, and produce a traceable report; template-based batch configuration comes next."
+  }
+}

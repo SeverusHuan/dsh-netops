@@ -1,0 +1,58 @@
+{
+  "name": "dsh-netops",
+  "version": "0.2.0",
+  "description": "Read-only network device inspection for DeepSeek Harness: CPU, memory, fans, power, temperature, disk and uptime over SSH or Telnet, with per-run reports.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "lib",
+    "profiles",
+    "scripts",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "docs",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek",
+    "harness",
+    "network",
+    "netops",
+    "ansible",
+    "netmiko",
+    "h3c",
+    "comware"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OWNER/dsh-netops.git"
+  },
+  "homepage": "https://github.com/OWNER/dsh-netops#readme",
+  "bugs": {
+    "url": "https://github.com/OWNER/dsh-netops/issues"
+  },
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.2.2-0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

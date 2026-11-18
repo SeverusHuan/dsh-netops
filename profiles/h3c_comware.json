@@ -1,0 +1,42 @@
+{
+  "platform": "h3c_comware",
+  "vendor": "H3C",
+  "description": "H3C Comware V7（HCL 上 S5820V2-54QS-GE / S6850 实测）",
+  "netmiko": {
+    "ssh": "hp_comware",
+    "telnet": "hp_comware_telnet"
+  },
+  "defaultPort": {
+    "ssh": 22,
+    "telnet": 23
+  },
+  "commands": {
+    "version": "display version",
+    "board": "display device",
+    "inventory": "display device manuinfo",
+    "cpu": "display cpu-usage",
+    "memory": "display memory",
+    "fan": "display fan",
+    "power": "display power",
+    "environment": "display environment",
+    "flash": "dir flash:/",
+    "interfaces": "display interface brief"
+  },
+  "checks": {
+    "identity": ["version", "board", "inventory"],
+    "uptime": ["version"],
+    "cpu": ["cpu"],
+    "memory": ["memory"],
+    "fan": ["fan"],
+    "power": ["power"],
+    "thermal": ["environment"],
+    "disk": ["flash"],
+    "interfaces": ["interfaces"]
+  },
+  "thresholds": {
+    "cpu": 80,
+    "memory": 80,
+    "disk": 85,
+    "uptimeHours": 24
+  }
+}
