@@ -32,8 +32,29 @@ dsh plugin add /path/to/dsh-netops
 
 装好后在 **插件** 页能看到「网络运维（Ansible）」，工具 `netops_devices`、`netops_inspect`、`netops_run_report` 随即可用。
 
-> 依赖：本机需要 Python 3.8+ 与 `netmiko`（`pip install netmiko`）。插件通过本地 Python 执行器登录设备；
-> Ansible 执行层在后续版本接入，届时命令与解析逻辑不变。
+> 运行环境（Python + netmiko）见下一节；**不需要 WSL2 或 Ansible**。
+
+## 运行环境
+
+只需要三样东西，**不需要 WSL2、Ansible 或 Docker**：
+
+| 需要 | 说明 |
+|---|---|
+| dsh 0.2.2+ | 宿主 |
+| Python 3.8+ | Windows 用 <https://www.python.org/downloads/> 的安装包，勾选 *Add python.exe to PATH* |
+| netmiko | `python -m pip install netmiko` |
+
+装完插件后先生成环境自检：
+
+```
+你：检查一下巡检环境
+```
+
+agent 会调用 `netops_doctor` 逐项检查 Python、netmiko、数据目录、设备清单，需要时再测管理地址端口，
+缺什么就直接给可复制的修复命令。
+
+> Ansible 是**后续版本的可选执行器**（届时 WSL2 / Linux 跳板机 / Docker 任选其一），不是现在的前置条件；
+> 现在这条只读巡检链路完全不经过 Ansible。
 
 ## 配置
 
@@ -84,6 +105,7 @@ dsh plugin add /path/to/dsh-netops
 
 | 工具 | 作用 |
 |---|---|
+| `netops_doctor` | 环境自检（Python / netmiko / 数据目录 / 设备清单 / 可选端口连通性） |
 | `netops_devices` | 列出设备清单（id / 地址 / 协议 / 平台 / 分组） |
 | `netops_inspect` | 巡检并生成报告；可指定 `devices`、`checks`、`protocol` |
 | `netops_run_report` | 读回某次运行的完整报告 |

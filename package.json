@@ -1,6 +1,6 @@
 {
   "name": "dsh-netops",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Read-only network device inspection for DeepSeek Harness: CPU, memory, fans, power, temperature, disk and uptime over SSH or Telnet, with per-run reports.",
   "license": "MIT",
   "type": "module",
