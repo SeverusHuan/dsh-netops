@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>网络设备巡检</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <span class="dot"></span>
+        <h1>网络设备巡检</h1>
+        <span class="ver" id="version">dsh-netops</span>
+      </div>
+      <div class="env">
+        <div class="env" id="env"></div>
+        <button class="ghost" id="quit" title="关闭本地服务">退出</button>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>设备</h2>
+      <div class="banner hidden" id="error"></div>
+      <div class="grid">
+        <label class="field">IP 地址
+          <input id="host" placeholder="192.168.0.1" autocomplete="off" spellcheck="false" autofocus>
+        </label>
+        <label class="field">端口
+          <input id="port" placeholder="22" inputmode="numeric" autocomplete="off">
+        </label>
+        <label class="field">连接方式
+          <select id="protocol">
+            <option value="ssh">SSH</option>
+            <option value="telnet">Telnet</option>
+          </select>
+        </label>
+        <label class="field">用户名
+          <input id="username" placeholder="admin" autocomplete="off" spellcheck="false">
+        </label>
+        <label class="field span-2">密码
+          <input id="password" type="password" placeholder="设备登录密码" autocomplete="off">
+        </label>
+      </div>
+
+      <div class="checks" id="checks"></div>
+
+      <div class="actions">
+        <button class="primary" id="run">开始巡检</button>
+        <span class="hint" id="hint"></span>
+      </div>
+    </section>
+
+    <section class="card hidden" id="result">
+      <h2>巡检结果 <button class="ghost" id="open-report">查看报告</button></h2>
+      <div class="summary">
+        <span class="name" id="r-name">—</span>
+        <span class="meta" id="r-meta"></span>
+      </div>
+      <div class="tiles" id="tiles"></div>
+      <div class="alerts" id="alerts"></div>
+      <div class="paths" id="paths"></div>
+    </section>
+
+    <section class="card">
+      <h2>最近巡检 <button class="ghost" id="refresh">刷新</button></h2>
+      <div class="history" id="history"><div class="empty">还没有巡检记录</div></div>
+    </section>
+  </div>
+
+  <dialog id="reportDialog">
+    <div class="dialog-head">
+      <span id="reportTitle">报告</span>
+      <button class="ghost" id="closeReport">关闭</button>
+    </div>
+    <pre id="reportBody"></pre>
+  </dialog>
+
+  <script src="/app.js"></script>
+</body>
+</html>

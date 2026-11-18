@@ -1,10 +1,13 @@
 {
   "name": "dsh-netops",
-  "version": "0.2.1",
-  "description": "Read-only network device inspection for DeepSeek Harness: CPU, memory, fans, power, temperature, disk and uptime over SSH or Telnet, with per-run reports.",
+  "version": "0.3.0",
+  "description": "Read-only network device inspection for DeepSeek Harness: CPU, memory, fans, power, temperature, disk and uptime over SSH or Telnet, with per-run reports and a standalone desktop panel.",
   "license": "MIT",
   "type": "module",
   "main": "./index.js",
+  "bin": {
+    "dsh-netops-gui": "./gui/launch.mjs"
+  },
   "exports": {
     ".": "./index.js",
     "./locale/*.json": "./locale/*.json",
@@ -13,6 +16,7 @@
   },
   "files": [
     "index.js",
+    "gui",
     "lib",
     "profiles",
     "scripts",

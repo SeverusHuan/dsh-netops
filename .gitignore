@@ -5,6 +5,10 @@ npm-debug.log*
 # 本地机器配置与凭据（放在数据目录，也不要提交）
 netops.local.json
 netops.local.json.*
+gui/gui.config.json
+
+# 构建产物
+dist/
 
 # 巡检产物
 runs/

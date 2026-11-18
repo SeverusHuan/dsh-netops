@@ -127,6 +127,32 @@ agent 会调用 `netops_doctor` 逐项检查 Python、netmiko、数据目录、�
 └─ reports/<runId>.md       # 长期留档
 ```
 
+## 独立巡检面板（可选）
+
+不想开 DSH 也能用：面板是一个本地页面 + 一个 5 KB 启动器，巡检逻辑和插件**完全共用**同一份代码（`lib/inspect.js`），
+所以结果、报告、原始输出都落在同一个 `runs/` 目录，DSH 里的 `netops_run_report` 也能读到面板跑出来的报告。
+
+```powershell
+# 方式一：直接跑（需要 Node 20+）
+node gui/launch.mjs
+
+# 方式二：打包成 exe（Windows 自带 csc，不用装任何打包工具）
+powershell -ExecutionPolicy Bypass -File scripts\build-gui.ps1
+# 产物：dist\dsh-netops-gui.exe，整个 dist 文件夹可直接复制给别人
+```
+
+双击 exe 会：
+
+1. 找到 Node（同目录 `node.exe` > `NETOPS_NODE` > PATH > 常见安装路径）；
+2. 在 `127.0.0.1:7681` 起一个只监听本机的服务；
+3. 用 Edge 的 app 模式开一个无地址栏窗口。
+
+面板里填 **IP、端口、协议（SSH/Telnet）、用户名、密码**，点「开始巡检」即可；
+结果显示型号、版本、运行时长、CPU、内存、风扇、电源、温度、磁盘与关注项，历史记录可点开看完整报告。
+关窗口后点页面右上角「退出」结束本地服务。
+
+数据目录优先级：`--root` > 环境变量 `NETOPS_HOME` > `gui/gui.config.json` > `~/dsh-netops`。
+
 ## 目录结构
 
 ```
@@ -151,6 +177,8 @@ assets / locale / docs      图标、界面文案、插件详情
 ## 路线图
 
 - [x] M1 只读巡检（H3C Comware）+ 报告
+- [x] 独立巡检面板（exe / 本地页面）
+- [ ] M1.5 批量巡检（表单里一次填多台）
 - [ ] M2 配置下发：模板 + 变量 → 渲染预览 → 备份 → 串行下发 → 回读
 - [ ] M3 配置编写页面（设备清单、模板、预览、运行记录）
 - [ ] M4 安全设备网页截图巡检
