@@ -16,6 +16,12 @@ foreach ($item in @('gui', 'lib', 'profiles', 'scripts', 'package.json', 'icon.s
   }
 }
 
+# Machine-local data directory (gitignored, never published).
+$localConfig = Join-Path $root 'gui.config.json'
+if (Test-Path $localConfig) {
+  Copy-Item -Path $localConfig -Destination (Join-Path $dist 'gui.config.json') -Force
+}
+
 # Build-only files do not belong in dist.
 Remove-Item (Join-Path $dist 'scripts\build-gui.ps1') -Force -ErrorAction SilentlyContinue
 Remove-Item (Join-Path $dist 'scripts\dev-run.mjs') -Force -ErrorAction SilentlyContinue

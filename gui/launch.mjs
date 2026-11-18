@@ -44,16 +44,18 @@ function listen(target, port) {
   })
 }
 
-/** 本机配置：dist/gui/gui.config.json，只写数据目录，不进仓库。 */
+/** 本机配置：gui.config.json（dist 根目录或 gui/ 下），只写数据目录，不进仓库也不进 npm 包。 */
 function readGuiConfig() {
-  const file = path.join(HERE, 'gui.config.json')
-  try {
-    if (!fs.existsSync(file)) return {}
-    const parsed = JSON.parse(fs.readFileSync(file, 'utf8'))
-    return parsed && typeof parsed === 'object' ? parsed : {}
-  } catch {
-    return {}
+  for (const file of [path.join(HERE, '..', 'gui.config.json'), path.join(HERE, 'gui.config.json')]) {
+    try {
+      if (!fs.existsSync(file)) continue
+      const parsed = JSON.parse(fs.readFileSync(file, 'utf8'))
+      if (parsed && typeof parsed === 'object') return parsed
+    } catch {
+      // 配置写坏了就当没有，继续用默认值
+    }
   }
+  return {}
 }
 
 function openApp(target) {
