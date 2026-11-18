@@ -4,18 +4,19 @@
 
 ---
 
-## 0. 先改掉占位符
+## 0. 仓库地址（已完成）
 
-`package.json` 里的 `OWNER` 是你 GitHub 用户名：
+`package.json`、`README.md`、`docs/market-entry.yml` 里的地址已填成
+`https://github.com/SeverusHuan/dsh-netops`，本地 remote `origin` 也配好了，这一步不用再做。
+
+以后换账号或改名，一次性改完：
 
 ```powershell
 cd H:\网络问题\dsh-netops
-npm pkg set "repository.url=git+https://github.com/你的用户名/dsh-netops.git"
-npm pkg set "homepage=https://github.com/你的用户名/dsh-netops#readme"
-npm pkg set "bugs.url=https://github.com/你的用户名/dsh-netops/issues"
+npm pkg set "repository.url=git+https://github.com/新用户名/dsh-netops.git"
+npm pkg set "homepage=https://github.com/新用户名/dsh-netops#readme"
+npm pkg set "bugs.url=https://github.com/新用户名/dsh-netops/issues"
 ```
-
-`docs/market-entry.yml` 里的 `OWNER` 同样替换（提交市场时用）。
 
 ---
 
@@ -66,7 +67,7 @@ npm publish
 **投稿方式：一个文件，一个 PR。**
 
 1. Fork 那个仓库。
-2. 新建 `data/plugins/<owner>__dsh-netops.yml`，内容复制 `docs/market-entry.yml`（把 OWNER 换成你的用户名）。
+2. 新建 `data/plugins/SeverusHuan__dsh-netops.yml`，内容复制 `docs/market-entry.yml`（仓库地址已填好）。
 3. 提 PR。合并后站点自动重建，通常一天内出现在市场里。
 
 硬性要求（都满足）：

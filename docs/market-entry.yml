@@ -1,25 +1,24 @@
 # 提交到 awesome-dsh-plugin 的条目模板
 #
 # 用法：
-#   1. 把 OWNER 换成你的 GitHub 用户名，url 必须与你真实的仓库地址完全一致
-#   2. 在 https://github.com/awesome-dsh-plugin/awesome-dsh-plugin 提 PR，
-#      只新增一个文件：data/plugins/<owner>__<repo>.yml，内容就是下面这段
-#   3. 仓库需要添加 GitHub topic：dsh-plugin
-#   4. 描述必须属实（维护者会对着代码核）；分类选最接近的，不要求精确
+#   1. 在 https://github.com/awesome-dsh-plugin/awesome-dsh-plugin 提 PR，
+#      只新增一个文件：data/plugins/SeverusHuan__dsh-netops.yml，内容就是下面这段
+#   2. 仓库需要添加 GitHub topic：dsh-plugin
+#   3. 描述必须属实（维护者会对着代码核）；分类选最接近的，不要求精确
 #
 # 可用 category：agi ui usage theme model identity session memory tools wsl
 # browser vision voice docs skill workflow git notify dev security remote market fun
 # 本插件属于「网络运维工具」，用 tools。
 
-url: https://github.com/OWNER/dsh-netops
-name: OWNER/dsh-netops
+url: https://github.com/SeverusHuan/dsh-netops
+name: SeverusHuan/dsh-netops
 category: tools
 description:
   en: Read-only inspection of network devices over SSH or Telnet for CPU, memory, fans, power, temperature, disk usage and uptime, with a per-run Markdown report and raw command output kept on disk.
   zh: 通过 SSH 或 Telnet 只读巡检网络设备的 CPU、内存、风扇、电源、温度、磁盘占用与运行时长，并按次生成 Markdown 报告、保留原始命令输出。
 
 # 可选：市场卡片图标（必须是 GitHub 托管的 png/jpg/webp，~96px 方形最清楚）
-# icon: https://raw.githubusercontent.com/OWNER/dsh-netops/main/assets/icon-180.png
+# icon: https://raw.githubusercontent.com/SeverusHuan/dsh-netops/main/assets/icon-180.png
 
 # 可选：不发 npm 时，指向 GitHub Release 的预构建 tarball
-# tarball: https://github.com/OWNER/dsh-netops/releases/latest/download/dsh-netops.tgz
+# tarball: https://github.com/SeverusHuan/dsh-netops/releases/latest/download/dsh-netops.tgz

@@ -37,11 +37,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OWNER/dsh-netops.git"
+    "url": "git+https://github.com/SeverusHuan/dsh-netops.git"
   },
-  "homepage": "https://github.com/OWNER/dsh-netops#readme",
+  "homepage": "https://github.com/SeverusHuan/dsh-netops#readme",
   "bugs": {
-    "url": "https://github.com/OWNER/dsh-netops/issues"
+    "url": "https://github.com/SeverusHuan/dsh-netops/issues"
   },
   "engines": {
     "node": ">=20",

@@ -24,7 +24,7 @@ Network device inspection for [DeepSeek Harness](https://github.com/deepseek-ai/
 dsh plugin add dsh-netops
 
 # 2) 直接从 GitHub
-dsh plugin add github:OWNER/dsh-netops
+dsh plugin add github:SeverusHuan/dsh-netops
 
 # 3) 本地目录（开发时）
 dsh plugin add /path/to/dsh-netops
